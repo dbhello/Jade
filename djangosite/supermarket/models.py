@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Employee(models.Model):
     employee_id = models.IntegerField(primary_key=True)
     identity_id = models.CharField(max_length=18)
@@ -12,11 +13,13 @@ class Employee(models.Model):
     marriage = models.CharField(max_length=10)
     province = models.CharField(max_length=30)
     address = models.CharField(max_length=60)
-        
-class Salary(models.Model):#need detail
+
+
+class Salary(models.Model): # need detail
     employee = models.ForeignKey(Employee)
     base_salary = models.IntegerField()
     bonus = models.IntegerField()
+
 
 class Supplyer(models.Model):
     supplyer_id = models.IntegerField(primary_key=True)
@@ -24,14 +27,16 @@ class Supplyer(models.Model):
     supplyer_person = models.CharField(max_length=60)
     supplyer_phone = models.CharField(max_length=11)
     address = models.CharField(max_length=60)
-    
+
+
 class Goods(models.Model):
     goods_id = models.IntegerField(primary_key=True)
     type = models.CharField(max_length=10)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
-    supplyer = models.ManyToManyField(Supplyer) ####attention!
-    
+    supplyer = models.ManyToManyField(Supplyer) # ###attention!
+
+
 class Sales(models.Model):
     sales_id = models.IntegerField(primary_key=True)
     goods = models.ForeignKey(Goods)
@@ -39,7 +44,8 @@ class Sales(models.Model):
     sale_price = models.FloatField()
     sale_quantity = models.IntegerField()
     sale_date = models.DateField()
-    
+
+
 class Purchase(models.Model):
     purchase_id = models.IntegerField(primary_key=True)
     goods = models.ForeignKey(Goods)
@@ -49,17 +55,3 @@ class Purchase(models.Model):
     unit = models.CharField(max_length=20)
     stock_price = models.FloatField()
     stock_quantity = models.IntegerField()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
