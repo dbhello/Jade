@@ -6,7 +6,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'gender', 'education', 'phone', 'address')
     search_fields = ('name',)
 
-    
+
 class GoodsAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'description')
     search_fields = ('name',)

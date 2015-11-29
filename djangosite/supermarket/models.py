@@ -1,13 +1,15 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 class Employee(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     employee_id = models.IntegerField(primary_key=True)
     identity_id = models.CharField(max_length=18)
     name = models.CharField(max_length=30)
     gender = models.CharField(max_length=10)
     birthday = models.DateField()
-    password = models.CharField(max_length=100)
+    #password = models.CharField(max_length=100)
     education = models.CharField(max_length=10)
     phone = models.CharField(max_length=11)
     marriage = models.CharField(max_length=10)

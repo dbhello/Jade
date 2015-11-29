@@ -29,6 +29,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Specify my custom authentication backend
+
+AUTHENTICATION_BACKENDS = (
+    "djangosite.backends.ModelBackend",
+    "django.contrib.auth.backends.ModelBackend",
+)
+
 INSTALLED_APPS = (
     'bootstrap3',
     'django_admin_bootstrapped',
@@ -39,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangosite.supermarket',
+    #'supermarket',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,6 +66,9 @@ TEMPLATE_DIRS = (
 )
 
 WSGI_APPLICATION = 'djangosite.wsgi.application'
+
+# define custom user model
+# AUTH_USER_MODEL = "djangosite.supermarket.Employee"
 
 
 # Database
